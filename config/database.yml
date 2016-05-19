@@ -1,0 +1,21 @@
+default: &default
+  encoding: unicode
+  adapter: postgresql
+  pool: 5
+  username: msgme_user
+  password: dbpassword
+
+development:
+  <<: *default
+  database: msgme_development
+
+test:
+  <<: *default
+  database: msgme_test
+
+production:
+  <<: *default
+  database: msgme_production
+
+# Create Role before rake db:migrate
+# CREATE ROLE msgme_user WITH CREATEDB LOGIN ENCRYPTED PASSWORD 'dbpassword';
